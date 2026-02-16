@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Zeynep için Soft Panel</title>
+  <meta name="description" content="Hava durumu, yağmur riski, Levent'e uzaklık, hızlı satranç ve küçük tatlılıklar." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body class="page-enter">
+  <div class="bg">
+    <div class="grain" aria-hidden="true"></div>
+    <div class="blobs" aria-hidden="true">
+      <span class="blob b1"></span>
+      <span class="blob b2"></span>
+      <span class="blob b3"></span>
+    </div>
+  </div>
+
+  <!-- Rain overlay (very soft) -->
+  <div class="rain" id="rain" aria-hidden="true"></div>
+
+  <main class="wrap" role="main">
+    <!-- Mini equalizer (music on) -->
+    <div class="eq" id="eq" aria-hidden="true" title="Müzik açık">
+      <span></span><span></span><span></span><span></span>
+    </div>
+
+    <header class="top">
+      <div>
+        <div class="kicker">🌿 Romantik & Soft</div>
+        <h1>Zeynep Paneli</h1>
+        <p class="sub">
+          Hemşire modu: hızlı bak — hava, yağmur, uzaklık, küçük sürprizler 💛
+        </p>
+      </div>
+
+      <div class="pills">
+        <button id="btnZeynep" class="pill" type="button" aria-pressed="false">Ben Zeynep’im</button>
+        <button id="btnLevent" class="pill" type="button" aria-pressed="false">Ben Levent’im</button>
+      </div>
+    </header>
+
+    <section class="grid">
+      <!-- Card: Today / Mood -->
+      <article class="card hero">
+        <div class="heroTop">
+          <div class="badge" id="whoBadge">Mod: —</div>
+          <div class="badge soft" id="clock">—</div>
+        </div>
+
+        <!-- Heart beat row -->
+        <div class="heartRow" aria-hidden="true">
+          <span class="heart" id="heart">❤</span>
+          <span class="heartText" id="heartText">mod seç</span>
+        </div>
+
+        <div class="heroBody">
+          <div class="big" id="greeting">Selam 🙂</div>
+          <div class="hint" id="hintLine">Önce kim olduğunu seç: Zeynep mi Levent mi?</div>
+
+          <div class="row">
+            <button class="btn primary" id="btnMyLoc" type="button">Konumumu Aç</button>
+            <button class="btn" id="btnMusic" type="button" aria-pressed="false">Müzik: Kapalı</button>
+          </div>
+
+          <div class="tiny" id="locStatus">Konum kapalı.</div>
+        </div>
+
+        <div class="sparkles" aria-hidden="true"></div>
+      </article>
+
+      <!-- Card: Weather -->
+      <article class="card">
+        <div class="cardTitle">Hava Durumu 🌦️</div>
+        <div class="wx">
+          <div class="wxLeft">
+            <div class="wxTemp" id="wxTemp">—</div>
+            <div class="wxMeta" id="wxMeta">Konum açınca güncellenecek.</div>
+          </div>
+          <div class="wxRight">
+            <div class="wxChip" id="wxRain">Yağmur riski: —</div>
+            <div class="wxChip soft" id="wxWind">Rüzgar: —</div>
+          </div>
+        </div>
+        <div class="divider"></div>
+        <div class="smallmuted" id="wxAdvice">—</div>
+      </article>
+
+      <!-- Card: Distance -->
+      <article class="card">
+        <div class="cardTitle">Levent’e Uzaklık 📍</div>
+        <div class="distance">
+          <div class="km" id="distKm">—</div>
+          <div class="smallmuted" id="distMeta">Levent konumu bekleniyor.</div>
+        </div>
+
+        <div class="row">
+          <button class="btn" id="btnTrackStart" type="button">Levent: Takibi Başlat</button>
+          <button class="btn" id="btnTrackStop" type="button">Levent: Durdur</button>
+        </div>
+
+        <div class="tiny" id="levStatus">Levent canlı konumu: —</div>
+      </article>
+
+      <!-- Card: Chess -->
+      <article class="card">
+        <div class="cardTitle">Hızlı Satranç ♟️</div>
+        <p class="smallmuted">3+0 ya da 5+0 hızlı oyun için tek dokunuş.</p>
+
+        <div class="row">
+          <a class="btn primary" id="btnChess3" href="https://www.chess.com/play/online/new" target="_blank" rel="noreferrer">Hemen Oyna</a>
+          <button class="btn" id="btnNudge" type="button">Tatlı Hatırlatma</button>
+        </div>
+
+        <div class="tiny" id="chessNote">Zeynep: <b>piko005</b> — Levent: <b>Chesscake</b> 🙂</div>
+      </article>
+
+      <!-- Card: Mini notes -->
+      <article class="card">
+        <div class="cardTitle">Mini Notlar ✨</div>
+
+        <div class="miniList">
+          <div class="miniItem">
+            <div class="miniIcon">🫶</div>
+            <div>
+              <div class="miniHead">Yumuşak mod</div>
+              <div class="miniText">Göz yormayan, hızlı bakışlık.</div>
+            </div>
+          </div>
+
+          <div class="miniItem">
+            <div class="miniIcon">🩺</div>
+            <div>
+              <div class="miniHead">Nöbet dostu</div>
+              <div class="miniText">Konum + hava + yağmur riski tek ekranda.</div>
+            </div>
+          </div>
+
+          <div class="miniItem">
+            <div class="miniIcon">💛</div>
+            <div>
+              <div class="miniHead">Şirin detaylar</div>
+              <div class="miniText" id="cuteLine">—</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row">
+          <button class="btn soft" id="btnDuty" type="button">Nöbet: Kapalı</button>
+          <button class="btn soft" id="btnStatus" type="button">Durum: —</button>
+        </div>
+
+        <div class="tiny" id="statusNote">—</div>
+      </article>
+    </section>
+
+    <footer class="foot">
+      <div class="footInner">
+        <span class="tiny">© Levent → Zeynep</span>
+        <span class="tiny dot">•</span>
+        <span class="tiny">Konum: yuvarlanır (4 basamak) — daha gizli.</span>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Soft music (telifsiz kısa loop) -->
+  <audio id="bgm" preload="none" loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_2b18c4c6e4.mp3?filename=soft-piano-logo-115239.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
